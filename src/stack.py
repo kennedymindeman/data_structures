@@ -13,6 +13,10 @@ class PoppedEmptyStackException(StackException):
     """An empty stack was popped"""
 
 
+class RanTopOnEmptyStackException(StackException):
+    """Top was run on an empty stack"""
+
+
 class Stack:
     """Stack class that supports LIFO operations"""
 
