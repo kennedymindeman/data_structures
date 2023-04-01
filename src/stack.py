@@ -1,6 +1,7 @@
 """Stack class file"""
 
 
+import copy
 from typing import Iterable, Optional
 
 
@@ -17,3 +18,10 @@ class Stack:
         :return: True if adding the item was successful false otherwise
         """
         self._list.append(item)
+
+    def peek(self):
+        """Peeks at the top of the stack
+
+        :return: A deep copy of the item on top of the stack
+        """
+        return copy.deepcopy(self._list[-1])

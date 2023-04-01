@@ -17,4 +17,4 @@ def test_push_on_empty_stack():
     """Tests the stack's push method"""
     stack = Stack()
     stack.push(1)
-    assert stack._list[-1] == 1
+    assert stack.peek() == 1
