@@ -19,7 +19,7 @@ class Stack:
         """
         self._list.append(item)
 
-    def peek(self):
+    def peek(self) -> object:
         """Peeks at the top of the stack
 
         :return: A deep copy of the item on top of the stack
