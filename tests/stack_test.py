@@ -48,3 +48,13 @@ def test_pop_on_empty_stack():
     """Tests popping an empty stack"""
     with raises(PoppedEmptyStackException):
         Stack().pop()
+
+
+def test_empty():
+    """Tets the empty method of the Stack class"""
+    stack = Stack()
+    assert stack.empty()
+    stack.push(1)
+    assert not stack.empty()
+    stack.pop()
+    assert stack.empty()
