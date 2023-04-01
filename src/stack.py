@@ -43,3 +43,10 @@ class Stack:
             raise PoppedEmptyStackException("pop called on empty Stack")
 
         return self._list.pop()
+
+    def empty(self) -> bool:
+        """Indicates if there's items on the stack
+
+        :return: True if the stack is empty False otherwise
+        """
+        return len(self._list) == 0
