@@ -1,5 +1,7 @@
 """Test suite for Stack class"""
-from src.stack import Stack
+from pytest import raises
+
+from src.stack import PoppedEmptyStackException, Stack
 
 
 def test_stack_constructor():
@@ -35,4 +37,5 @@ def test_push_on_non_empty_stack():
 
 def test_pop_on_empty_stack():
     """Tests popping an empty stack"""
-    Stack().pop()
+    with raises(PoppedEmptyStackException):
+        Stack().pop()
