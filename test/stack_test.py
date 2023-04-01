@@ -17,4 +17,17 @@ def test_push_on_empty_stack():
     """Tests the stack's push method"""
     stack = Stack()
     stack.push(1)
+
+
+def test_push_on_non_empty_stack():
+    """Tests results of pushing onto a stack that has an item on it"""
+    stack = Stack([1])
     assert stack.peek() == 1
+    assert stack.peek() != 2
+    stack.push(2)
+    assert stack.peek() == 2
+    assert stack.peek() != 1
+    lst = []
+    stack.push(lst)
+    assert stack.peek() == []
+    assert stack.peek() is not lst
