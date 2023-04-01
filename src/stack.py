@@ -1,7 +1,7 @@
 """Stack class file"""
 
 
-import copy
+from copy import deepcopy
 from typing import Iterable, Optional
 
 
@@ -24,4 +24,4 @@ class Stack:
 
         :return: A deep copy of the item on top of the stack
         """
-        return copy.deepcopy(self._list[-1])
+        return deepcopy(self._list[-1])
