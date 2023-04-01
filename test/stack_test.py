@@ -11,3 +11,9 @@ def test_stack_constructor_iterable():
     """Tests the constructor of the stack object when passed an
     iterable"""
     assert isinstance(Stack([1, 2, 3]), Stack)
+
+
+def test_push_on_empty_stack():
+    """Tests the stack's push method"""
+    stack = Stack()
+    assert stack.push()
