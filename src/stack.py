@@ -49,4 +49,8 @@ class Stack:
 
         :return: True if the stack is empty False otherwise
         """
-        return len(self._list) == 0
+        return self.size() == 0
+
+    def size(self) -> int:
+        """:return: Size of the stack"""
+        return len(self._list)
