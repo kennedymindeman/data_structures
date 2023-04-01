@@ -1,2 +1,5 @@
-*
-!.gitignore
+/*
+!src
+!test
+!setup.py
+**/__pycache__
