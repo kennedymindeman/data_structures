@@ -18,7 +18,7 @@ def test_stack_constructor():
     assert isinstance(Stack(), Stack)
 
 
-def test_stack_constructor_iterable(populated_stack):
+def test_stack_constructor_iterable(populated_stack: Stack):
     """Tests the constructor of the stack object when passed an
     iterable"""
     assert isinstance(populated_stack, Stack)
