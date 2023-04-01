@@ -1,7 +1,11 @@
 """Test suite for Stack class"""
 from pytest import fixture, raises
 
-from src.stack import PoppedEmptyStackException, Stack
+from src.stack import (
+    PoppedEmptyStackException,
+    RanTopOnEmptyStackException,
+    Stack,
+)
 
 
 @fixture(name="populated_stack")
@@ -33,15 +37,15 @@ def test_push_on_empty_stack():
 def test_push_on_non_empty_stack():
     """Tests results of pushing onto a stack that has an item on it"""
     stack = Stack([1])
-    assert stack.peek() == 1
-    assert stack.peek() != 2
+    assert stack.top() == 1
+    assert stack.top() != 2
     stack.push(2)
-    assert stack.peek() == 2
-    assert stack.peek() != 1
+    assert stack.top() == 2
+    assert stack.top() != 1
     lst = []
     stack.push(lst)
-    assert stack.peek() == []
-    assert stack.peek() is not lst
+    assert stack.top() == []
+    assert stack.top() is not lst
 
 
 def test_pop_on_empty_stack():
@@ -58,3 +62,9 @@ def test_empty():
     assert not stack.empty()
     stack.pop()
     assert stack.empty()
+
+
+def test_top_on_empty_stack():
+    """Tests behavior of top when called on an empty stack"""
+    with raises(RanTopOnEmptyStackException):
+        Stack().top()
