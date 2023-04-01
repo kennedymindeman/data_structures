@@ -17,7 +17,7 @@ class Stack:
         :param item: The item to add to the stack
         :return: True if adding the item was successful false otherwise
         """
-        self._list.append(item)
+        self._list.append(deepcopy(item))
 
     def peek(self) -> object:
         """Peeks at the top of the stack
