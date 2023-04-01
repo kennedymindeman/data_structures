@@ -9,7 +9,7 @@ class Stack:
     """Stack class that supports LIFO operations"""
 
     def __init__(self, iterable: Optional[Iterable] = None):
-        self._list = list(iterable) if iterable else []
+        self._list = [] if iterable is None else list(iterable)
 
     def push(self, item: object) -> None:
         """Push an item onto the stack
