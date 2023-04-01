@@ -25,3 +25,10 @@ class Stack:
         :return: A deep copy of the item on top of the stack
         """
         return deepcopy(self._list[-1])
+
+    def pop(self) -> object:
+        """Pops the item on top of the stack
+
+        :return: The item on top of the stack
+        """
+        return self._list.pop()
