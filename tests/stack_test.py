@@ -1,7 +1,16 @@
 """Test suite for Stack class"""
-from pytest import raises
+from pytest import fixture, raises
 
 from src.stack import PoppedEmptyStackException, Stack
+
+
+@fixture(name="populated_stack")
+def make_populated_stack():
+    """Sets up a stack with multiple elements on it
+
+    :return: _description_
+    """
+    return Stack([1, 2, 3, [], 3.14])
 
 
 def test_stack_constructor():
@@ -9,10 +18,10 @@ def test_stack_constructor():
     assert isinstance(Stack(), Stack)
 
 
-def test_stack_constructor_iterable():
+def test_stack_constructor_iterable(populated_stack):
     """Tests the constructor of the stack object when passed an
     iterable"""
-    assert isinstance(Stack([1, 2, 3]), Stack)
+    assert isinstance(populated_stack, Stack)
 
 
 def test_push_on_empty_stack():
