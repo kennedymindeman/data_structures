@@ -1,5 +1,5 @@
 from src.stack import func
 
 
-def test_func():
+def test_stack():
     assert func
