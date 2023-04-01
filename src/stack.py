@@ -5,6 +5,14 @@ from copy import deepcopy
 from typing import Iterable, Optional
 
 
+class StackException(Exception):
+    """Exception relating to a stack"""
+
+
+class PoppedEmptyStackException(StackException):
+    """An empty stack was popped"""
+
+
 class Stack:
     """Stack class that supports LIFO operations"""
 
@@ -31,4 +39,7 @@ class Stack:
 
         :return: The item on top of the stack
         """
+        if len(self._list) <= 0:
+            raise PoppedEmptyStackException("pop called on empty Stack")
+
         return self._list.pop()
