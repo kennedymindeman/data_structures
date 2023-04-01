@@ -36,6 +36,8 @@ class Stack:
 
         :return: A deep copy of the item on top of the stack
         """
+        if self.empty():
+            raise RanTopOnEmptyStackException("top called on empty Stack")
         return deepcopy(self._list[-1])
 
     def pop(self) -> object:
