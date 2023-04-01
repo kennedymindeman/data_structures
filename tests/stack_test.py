@@ -31,3 +31,8 @@ def test_push_on_non_empty_stack():
     stack.push(lst)
     assert stack.peek() == []
     assert stack.peek() is not lst
+
+
+def test_pop_on_empty_stack():
+    """Tests popping an empty stack"""
+    Stack().pop()
