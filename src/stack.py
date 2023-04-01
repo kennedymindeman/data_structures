@@ -10,14 +10,10 @@ class Stack:
     def __init__(self, iterable: Optional[Iterable] = None):
         self._list = list(iterable) if iterable else []
 
-    def push(self, item: object) -> bool:
+    def push(self, item: object) -> None:
         """Push an item onto the stack
 
         :param item: The item to add to the stack
         :return: True if adding the item was successful false otherwise
         """
-        try:
-            self._list.append(item)
-            return True
-        except MemoryError:
-            return False
+        self._list.append(item)

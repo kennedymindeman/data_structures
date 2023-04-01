@@ -16,4 +16,5 @@ def test_stack_constructor_iterable():
 def test_push_on_empty_stack():
     """Tests the stack's push method"""
     stack = Stack()
-    assert stack.push(1)
+    stack.push(1)
+    assert stack._list[-1] == 1
