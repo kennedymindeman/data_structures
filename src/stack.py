@@ -45,7 +45,7 @@ class Stack:
 
         :return: The item on top of the stack
         """
-        if len(self._list) <= 0:
+        if self.empty():
             raise PoppedEmptyStackException("pop called on empty Stack")
 
         return self._list.pop()
