@@ -53,6 +53,21 @@ class SinglyLinkedList:
         self.end.next_node = node
         self.end = node
 
+    def item_at(self, index: int) -> object:
+        """Finds the item at a given index
+
+        :param index: index to who's value to find
+        :return: item at index
+        """
+        if index > len(self):
+            raise IndexError
+
+        curr = self.head
+        for _ in range(index):
+            curr = curr.next_node  # type: ignore
+
+        return curr.val  # type: ignore
+
     def __len__(self) -> int:
         return self._length
 
