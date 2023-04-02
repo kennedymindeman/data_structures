@@ -29,6 +29,7 @@ class SinglyLinkedList:
     def __init__(self, iterable: Optional[Iterable] = None) -> None:
         self.head = None
         self.end = None
+        self.curr = None
         for item in [] if iterable is None else iterable:
             self.insert(SinglyLinkedList.Node(item))
 
@@ -49,3 +50,15 @@ class SinglyLinkedList:
 
         self.end.next_node = node
         self.end = node
+
+    def __iter__(self):
+        self.curr = self.head
+        return self
+
+    def __next__(self):
+        if self.curr is None:
+            raise StopIteration
+
+        val = self.curr.val
+        self.curr = self.curr.next_node
+        return val
