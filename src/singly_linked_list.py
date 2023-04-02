@@ -12,7 +12,7 @@ class InvalidListEndExcpetion(SinglyLinkedListException):
     """The end of a singly linked list doesn't contain valid data"""
 
 
-class LinkedList:
+class SinglyLinkedList:
     """List implemented using linked nodes"""
 
     class Node:
@@ -21,7 +21,7 @@ class LinkedList:
         def __init__(
             self,
             val: object,
-            next_node: Optional[LinkedList.Node] = None,
+            next_node: Optional[SinglyLinkedList.Node] = None,
         ) -> None:
             self.val = val
             self.next_node = next_node
@@ -30,9 +30,9 @@ class LinkedList:
         self.head = None
         self.end = None
         for item in [] if iterable is None else iterable:
-            self.insert(LinkedList.Node(item))
+            self.insert(SinglyLinkedList.Node(item))
 
-    def insert(self, node: LinkedList.Node) -> None:
+    def insert(self, node: SinglyLinkedList.Node) -> None:
         """Inserts a new node into the linked list
 
         :param node: The node to insert
