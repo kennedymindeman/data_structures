@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This library is meant to be an exercise in familiarizing myself with the underlying implementation of common datatypes
+This library is meant to be an exercise in familiarizing myself with the underlying implementation of common data structures
 
 ## included datatypes
 
