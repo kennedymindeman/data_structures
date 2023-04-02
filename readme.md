@@ -6,5 +6,5 @@ This library is meant to be an exercise in familiarizing myself with the underly
 
 ## included datatypes
 
-Stack
+Stack,
 Linked List
