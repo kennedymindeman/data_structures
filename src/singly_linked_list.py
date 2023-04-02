@@ -56,11 +56,11 @@ class SinglyLinkedList:
         """:return: length of list"""
         return self._length
 
-    def __iter__(self):
+    def __iter__(self) -> SinglyLinkedList:
         self.curr = self.head
         return self
 
-    def __next__(self):
+    def __next__(self) -> object:
         if self.curr is None:
             raise StopIteration
 
