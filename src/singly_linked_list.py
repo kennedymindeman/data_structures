@@ -30,6 +30,7 @@ class SinglyLinkedList:
         self.head = None
         self.end = None
         self.curr = None
+        self._length = 0
         for item in [] if iterable is None else iterable:
             self.insert(SinglyLinkedList.Node(item))
 
@@ -51,6 +52,10 @@ class SinglyLinkedList:
         self.end.next_node = node
         self.end = node
 
+    def length(self) -> int:
+        """:return: length of list"""
+        return self._length
+
     def __iter__(self):
         self.curr = self.head
         return self
@@ -61,4 +66,5 @@ class SinglyLinkedList:
 
         val = self.curr.val
         self.curr = self.curr.next_node
+        self._length += 1
         return val
