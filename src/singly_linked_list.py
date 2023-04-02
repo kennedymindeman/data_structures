@@ -41,6 +41,7 @@ class SinglyLinkedList:
         :raises InvalidListEndExcpetion: insert is called on a list
         with an invalid end node
         """
+        self._length += 1
         if self.head is None:
             self.head = node
             self.end = node
@@ -52,8 +53,7 @@ class SinglyLinkedList:
         self.end.next_node = node
         self.end = node
 
-    def length(self) -> int:
-        """:return: length of list"""
+    def __len__(self) -> int:
         return self._length
 
     def __iter__(self) -> SinglyLinkedList:
@@ -66,5 +66,4 @@ class SinglyLinkedList:
 
         val = self.curr.val
         self.curr = self.curr.next_node
-        self._length += 1
         return val
