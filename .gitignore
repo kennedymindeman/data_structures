@@ -3,3 +3,4 @@
 !tests
 !setup.py
 **/__pycache__
+!readme.md
