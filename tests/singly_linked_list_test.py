@@ -13,6 +13,13 @@ def test_iterable_constructor():
 
 
 def test_iteration():
-    """Tests iteration over linked list"""
+    """Tests iteration over singly linked list"""
     lst = [1, 2, 3, [[]], (7 // 8)]
     assert list(SinglyLinkedList(lst)) == lst
+
+
+def test_length():
+    """Tests length method of singly linked list"""
+    lst = [1, 2, 3, [[]], (7 // 8)]
+    linked_list = SinglyLinkedList(lst)
+    assert len(linked_list) == len(lst)
