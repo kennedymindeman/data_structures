@@ -10,7 +10,7 @@ class LinkedList:
     class Node:
         """A node in a linked list"""
 
-        def __init__(self, val, next_node):
+        def __init__(self, val, next_node) -> None:
             self.val = val
             self.next = next_node
 
