@@ -1,5 +1,13 @@
 """Test suite for singly linked list"""
+from pytest import fixture
+
 from src.singly_linked_list import SinglyLinkedList
+
+
+@fixture(name="populated_list")
+def make_populated_list():
+    """Generates a populated list and returns it"""
+    return [1, 2, 3, [[]], (7 // 8)]
 
 
 def test_constructor():
@@ -23,3 +31,17 @@ def test_length():
     lst = [1, 2, 3, [[]], (7 // 8)]
     linked_list = SinglyLinkedList(lst)
     assert len(linked_list) == len(lst)
+
+
+def test_item_at():
+    """Tests item_at method of singly linked list"""
+    lst = [1, 2, 3, [[]], (7 // 8)]
+    linked_list = SinglyLinkedList(lst)
+    for index, item in enumerate(lst):
+        assert linked_list.item_at(index) == item
+
+
+def test_remove(populated_list):
+    """Tests remove method of singly linked list"""
+    linked_list = SinglyLinkedList(populated_list)
+    assert linked_list.remove(3) == populated_list[3]
