@@ -45,3 +45,6 @@ def test_remove(populated_list):
     """Tests remove method of singly linked list"""
     linked_list = SinglyLinkedList(populated_list)
     assert linked_list.remove(3) == populated_list[3]
+    del populated_list[3]
+    assert list(linked_list) == populated_list
+    assert linked_list.remove(len(linked_list) - 1) == populated_list[-1]

@@ -26,6 +26,12 @@ class SinglyLinkedList:
             self.val = val
             self.next_node = next_node
 
+        def __repr__(self) -> str:
+            return f"Node({self.val})"
+
+        def __str__(self) -> str:
+            return f"Node({self.val})"
+
     def __init__(self, iterable: Optional[Iterable] = None) -> None:
         self.head = None
         self.end = None
@@ -81,8 +87,15 @@ class SinglyLinkedList:
         for _ in range(index - 1):
             curr = curr.next_node  # type: ignore
 
+        self._length -= 1
         return_val = curr.next_node.val  # type: ignore
-        curr.next_node = curr.next_node.next_node  # type: ignore
+        if curr.next_node is None:  # type: ignore
+            self.end = curr
+            curr.next_node = None  # type: ignore
+            return return_val
+
+        next_node = curr.next_node.next_node  # type: ignore
+        curr.next_node = next_node  # type: ignore
         return return_val
 
     def __len__(self) -> int:
@@ -99,3 +112,9 @@ class SinglyLinkedList:
         val = self.curr.val
         self.curr = self.curr.next_node
         return val
+
+    def __repr__(self) -> str:
+        return f"SinglyLinkedList({list(self)})"
+
+    def __str__(self) -> str:
+        return f"SinglyLinkedList({list(self)})"
