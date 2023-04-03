@@ -84,18 +84,19 @@ class SinglyLinkedList:
             raise IndexError
 
         curr = self.head
-        for _ in range(index - 1):
+        prev = self.head
+        for _ in range(index):
+            prev = curr
             curr = curr.next_node  # type: ignore
 
         self._length -= 1
-        return_val = curr.next_node.val  # type: ignore
-        if curr.next_node is None:  # type: ignore
-            self.end = curr
-            curr.next_node = None  # type: ignore
+        return_val = curr.val  # type: ignore
+        if curr is self.end:  # type: ignore
+            self.end = prev
+            prev.next_node = None  # type: ignore
             return return_val
 
-        next_node = curr.next_node.next_node  # type: ignore
-        curr.next_node = next_node  # type: ignore
+        prev.next_node = curr.next_node  # type: ignore
         return return_val
 
     def __len__(self) -> int:
@@ -118,3 +119,6 @@ class SinglyLinkedList:
 
     def __str__(self) -> str:
         return f"SinglyLinkedList({list(self)})"
+
+    def __getitem__(self, index: int) -> object:
+        return self.item_at(index)

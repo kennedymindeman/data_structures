@@ -48,3 +48,14 @@ def test_remove(populated_list):
     del populated_list[3]
     assert list(linked_list) == populated_list
     assert linked_list.remove(len(linked_list) - 1) == populated_list[-1]
+    del populated_list[-1]
+    assert list(linked_list) == populated_list
+    assert linked_list.remove(0) == populated_list[0]
+
+
+def test_indexing():
+    """Tests indexing of singly linked list"""
+    lst = [1, 2, 3, [[]], (7 // 8)]
+    linked_list = SinglyLinkedList(lst)
+    for index, item in enumerate(lst):
+        assert linked_list[index] == item
