@@ -20,7 +20,7 @@ class RanTopOnEmptyStackException(StackException):
 class Stack:
     """Stack class that supports LIFO operations"""
 
-    def __init__(self, iterable: Optional[Iterable] = None):
+    def __init__(self, iterable: Optional[Iterable] = None) -> None:
         self._list = [] if iterable is None else list(iterable)
 
     def push(self, item: object) -> None:
@@ -45,7 +45,7 @@ class Stack:
 
         :return: The item on top of the stack
         """
-        if len(self._list) <= 0:
+        if self.empty():
             raise PoppedEmptyStackException("pop called on empty Stack")
 
         return self._list.pop()
