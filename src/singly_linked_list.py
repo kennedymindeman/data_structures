@@ -37,27 +37,25 @@ class SinglyLinkedList:
         self.end = None
         self.curr = None
         self._length = 0
-        for item in [] if iterable is None else iterable:
-            self.insert(SinglyLinkedList.Node(item))
+        for item in [] if iterable is None else list(iterable)[::-1]:
+            self.insert(item)
 
-    def insert(self, node: SinglyLinkedList.Node) -> None:
+    def insert(self, val: object, index: int = 0) -> None:
         """Inserts a new node into the linked list
 
         :param node: The node to insert
         :raises InvalidListEndExcpetion: insert is called on a list
         with an invalid end node
         """
+        if index > len(self):
+            raise IndexError
+
         self._length += 1
-        if self.head is None:
-            self.head = node
-            self.end = node
-            return
+        curr = self.head
+        for _ in range(index):
+            curr = curr.next_node  # type: ignore
 
-        if self.end is None:
-            raise InvalidListEndExcpetion
-
-        self.end.next_node = node
-        self.end = node
+        self.head = SinglyLinkedList.Node(val, curr)  # type: ignore
 
     def item_at(self, index: int) -> object:
         """Finds the item at a given index
@@ -122,3 +120,10 @@ class SinglyLinkedList:
 
     def __getitem__(self, index: int) -> object:
         return self.item_at(index)
+
+    def __delitem__(self, index: int) -> None:
+        self.remove(index)
+
+    def __setitem__(self, index: int, value: object) -> None:
+        self.remove(index)
+        self.insert(SinglyLinkedList.Node(value))
