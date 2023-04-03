@@ -68,6 +68,23 @@ class SinglyLinkedList:
 
         return curr.val  # type: ignore
 
+    def remove(self, index: int) -> object:
+        """Removes an object at an index from the list if it's present
+
+        :param index: Index of item to remove
+        :return: The object that was removed
+        """
+        if index >= len(self):
+            raise IndexError
+
+        curr = self.head
+        for _ in range(index - 1):
+            curr = curr.next_node  # type: ignore
+
+        return_val = curr.next_node.val  # type: ignore
+        curr.next_node = curr.next_node.next_node  # type: ignore
+        return return_val
+
     def __len__(self) -> int:
         return self._length
 
