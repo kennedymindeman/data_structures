@@ -34,24 +34,20 @@ class DoublyLinkedList:
         :param index: The index at which to insert the item, defaults to 0
         """
         self._length += 1
-        if self.head is None and self.tail is None:
-            self.head = DoublyLinkedList.Node(val, self.head)
-            self.tail = self.head
-            return
-
         if index > self._length or self.head is None:
-            raise Exception
+            raise IndexError
 
         curr = self.head
         for _ in range(index):
             curr = curr.next_node
             if curr is None:
-                raise Exception
+                raise IndexError
 
-        new_node = DoublyLinkedList.Node(val, curr.prev_node, curr)
+        prev_node = None if curr is None else curr.prev_node
+        new_node = DoublyLinkedList.Node(val, prev_node, curr)
         curr.prev_node = new_node
-        if isinstance(new_node.prev_node, DoublyLinkedList.Node):
-            new_node.prev_node.next_node = new_node
+        if prev_node is not None:
+            prev_node.next_node = new_node
 
         if new_node.next_node is None:
             self.tail = new_node
