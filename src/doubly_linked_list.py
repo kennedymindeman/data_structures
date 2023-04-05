@@ -34,7 +34,7 @@ class DoublyLinkedList:
         :param index: The index at which to insert the item, defaults to 0
         """
         self._length += 1
-        if index > self._length or self.head is None:
+        if index > self._length:
             raise IndexError
 
         curr = self.head
@@ -45,7 +45,9 @@ class DoublyLinkedList:
 
         prev_node = None if curr is None else curr.prev_node
         new_node = DoublyLinkedList.Node(val, prev_node, curr)
-        curr.prev_node = new_node
+        if curr is not None:
+            curr.prev_node = new_node
+
         if prev_node is not None:
             prev_node.next_node = new_node
 
