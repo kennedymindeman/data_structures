@@ -1,6 +1,5 @@
-/*
+*
+!.gitignore
+!readme.md
 !src
 !tests
-!setup.py
-**/__pycache__
-!readme.md
