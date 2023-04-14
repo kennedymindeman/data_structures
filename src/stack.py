@@ -2,6 +2,7 @@
 
 
 from copy import deepcopy
+from dataclasses import dataclass
 from typing import Iterable, Optional
 
 
@@ -17,6 +18,7 @@ class RanTopOnEmptyStackException(StackException):
     """Top was run on an empty stack"""
 
 
+@dataclass
 class Stack:
     """Stack class that supports LIFO operations"""
 
