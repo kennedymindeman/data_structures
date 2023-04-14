@@ -1,6 +1,7 @@
 """List implemented using linked nodes"""
 from __future__ import annotations
 
+from dataclasses import dataclass
 from typing import Iterable, Optional
 
 
@@ -12,9 +13,11 @@ class InvalidListEndExcpetion(SinglyLinkedListException):
     """The end of a singly linked list doesn't contain valid data"""
 
 
+@dataclass
 class SinglyLinkedList:
     """List implemented using linked nodes"""
 
+    @dataclass
     class Node:
         """A node in a linked list"""
 
@@ -25,12 +28,6 @@ class SinglyLinkedList:
         ) -> None:
             self.val = val
             self.next_node = next_node
-
-        def __repr__(self) -> str:
-            return f"Node({self.val})"
-
-        def __str__(self) -> str:
-            return f"Node({self.val})"
 
     def __init__(self, iterable: Optional[Iterable] = None) -> None:
         self.head = None
@@ -111,12 +108,6 @@ class SinglyLinkedList:
         val = self.curr.val
         self.curr = self.curr.next_node
         return val
-
-    def __repr__(self) -> str:
-        return f"SinglyLinkedList({list(self)})"
-
-    def __str__(self) -> str:
-        return f"SinglyLinkedList({list(self)})"
 
     def __getitem__(self, index: int) -> object:
         return self.item_at(index)
